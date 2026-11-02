@@ -1,0 +1,171 @@
+@font-face {
+  font-family: playwriteTz;
+  src: url(./assets/fonts/Playwrite_TZ/PlaywriteTZ-VariableFont_wght.ttf)
+}
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+header {
+  display: flex;
+  padding: clamp(2rem, 2.5vw, 4rem);
+  justify-content: space-around;
+}
+
+nav {
+  display: flex;
+  gap: 1rem;
+}
+
+nav > a {
+  text-decoration: none;
+  color: #27d9c3;
+  font-size: clamp(1rem, 1vw, 3.75rem);
+  font-weight: 600;
+}
+
+nav > a:hover {
+  color: #2f4bff;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+}
+
+.hero {
+  --hero-fill: #2f4bff;
+  --hero-on-fill: #ffffff;
+
+  position: relative;
+  width: 100vw;
+  height: clamp(28rem, 45vw, 52rem);
+  overflow: hidden;
+  color: #fff;
+}
+
+.heroImage {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Darkens the side the text sits on so it stays readable on any image */
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to left,
+    rgba(0, 0, 0, 0.75) 0%,
+    rgba(0, 0, 0, 0.45) 40%,
+    rgba(0, 0, 0, 0) 75%
+  );
+  pointer-events: none;
+}
+
+.heroText {
+  position: absolute;
+  z-index: 1;
+  top: 50%;
+  right: clamp(1.25rem, 5vw, 5rem);
+  transform: translateY(-50%);
+  width: min(38rem, 45%);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: clamp(1.25rem, 2.5vw, 2rem);
+  font-family: playwriteTz;
+}
+
+.heroText h1 {
+  font-size: clamp(1.75rem, 3vw, 3.75rem);
+  font-weight: 600;
+  line-height: 1.08;
+  letter-spacing: -0.025em;
+  text-wrap: balance;
+}
+
+.heroButton {
+  display: inline-block;
+  padding: 0.9rem 1.75rem;
+  background: var(--hero-fill);
+  color: var(--hero-on-fill);
+  font-size: clamp(0.95rem, 1.2vw, 1.1rem);
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 999px;
+  transition: background 0.25s ease, background-color 0.25s ease;
+}
+
+.heroButton:hover {
+  background: #fff;
+  color: #17171a;
+}
+
+.heroButton:focus-visible {
+  outline: 3px solid #fff;
+  outline-offset: 3px;
+}
+
+/* Phones: text moves to the bottom over a bottom gradient */
+@media (max-width: 700px) {
+  .hero {
+    height: 32rem;
+  }
+
+  .hero::after {
+    background: linear-gradient(
+      to top,
+      rgba(0, 0, 0, 0.8) 0%,
+      rgba(0, 0, 0, 0.35) 55%,
+      rgba(0, 0, 0, 0) 100%
+    );
+  }
+
+  .heroText {
+    top: auto;
+    bottom: 2rem;
+    left: 1.25rem;
+    right: 1.25rem;
+    width: auto;
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .heroButton {
+    transition: none; transform: translateY(-2px);
+  }
+
+  .heroButton:hover {
+    transform: none;
+  }
+}
+
+footer {
+  display: flex;
+  align-items: center;
+  padding: 3rem;
+}
+
+footer > p {
+  margin: 0 auto ;
+}
+
+.contact-icons {
+  margin-right: 1rem;
+  display: flex;
+  gap: 0.5rem;
+}
+
+.contact-icons img {
+  width: 2vw;
+  height: auto;
+  padding: 0.3rem;
+}

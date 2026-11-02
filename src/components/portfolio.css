@@ -1,0 +1,11 @@
+.portfolio-wrapper {
+  width: 100vw;
+}
+
+.portfolio-wrapper > img {
+  height: 100vh;
+  width: 100vw;
+  object-fit: cover;
+  position: sticky;
+  top: 1px;
+}
